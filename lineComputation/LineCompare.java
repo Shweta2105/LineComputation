@@ -1,46 +1,71 @@
+package linecomputation;
 import java.util.Scanner;
 
-public class LineCompare
-{
-	public static void main(String[] args)
+import java.lang.*;
+
+public class linecomputation {
+	
+
+	public static double compareMethod(double length , double length1)
 	{
+	double compare = Double.compare(length , length1);
+
+	if ( compare > 0 )
+	{
+	 double sub = ( length - length1);
 		
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter x1, y1 and x2, y2 for line1:");
-		int x1 = scan.newInt();
-		int y1 = scan.newInt();
-		int x2 = scan.newInt();
-		int y2 = scan.newInt();
-
-		double length1,length2;
-
-		length1=Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
-		
-		System.out.println("Enter x1, y1 and x2,y2 for line2: ");
-		int a1 = scan.newInt();
-		int b1 = scan.newInt();
-		int a2 = scan.newInt();
-		int b2 = scan.newInt();
-
-		length2=Math.sqrt((a2-a1)*(a2-a1)+(b2-b1)*(b2-b1));
-		
-		 System.out.println("Length of line :");
-		System.out.println(length1);
-		 System.out.println("Length of line :");
-		System.out.println(length2); 
-		if(length1 == length2)
-		{
-			System.out.println("Lines are equal");
-		}
-		else if(length1 < length2)
-		{
-			System.out.println("length of Line1 is less than length of line2");
-		}
-		else
-		{
-			System.out.println("The length of line1 is greater ");
-
-		}
+		System.out.println(length + " is greater than " +length1 + sub );
+	return sub;
 
 	}
-}
+	else if ( compare < 0 )
+	{
+	double sub = (length1 - length );
+	 System.out.println( + length1 + " is greater than " + length + sub);
+	return sub;
+	}
+	else 
+	{
+		double sub = ( length - length1);
+
+		 System.out.println(" both are equal  " + length  + length1+ sub );
+	return sub;
+
+	}
+	} 
+	public static void main(String args[])
+	{
+	Scanner myObj = new Scanner(System.in);
+	System.out.println( " Enter xone , xtwo , yone and ytwo : ");
+
+	int xone = myObj.nextInt();
+	int xtwo = myObj.nextInt();
+	int yone = myObj.nextInt();
+	int ytwo = myObj.nextInt();
+
+	double length = Math.sqrt(Math.pow((xtwo - xone), 2 ) + Math.pow((ytwo - yone) , 2));
+	System.out.println(" the length of the line is " + length);
+
+
+	System.out.println( " Enter aone , atwo , bone and btwo : ");
+
+	int aone = myObj.nextInt();
+	int atwo = myObj.nextInt();
+	int bone = myObj.nextInt();
+	int btwo = myObj.nextInt();
+
+	double length1 = Math.sqrt(Math.pow((atwo - aone), 2 ) + Math.pow((btwo - bone) , 2));
+
+	System.out.println(" the length of the line is " + length1);
+
+
+	compareMethod(length , length1);
+
+
+
+
+	}
+
+	}
+
+
